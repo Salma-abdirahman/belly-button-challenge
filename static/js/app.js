@@ -28,40 +28,6 @@ function populateDropDown() {
 }
 
 
-    
-    // Creating Bar Chart
-
-
-    // Top 10 OTU IDs and data and sort
-    
-    var topOtuIDs = otuIDs.slice(0,10).reverse().map(otuID => "OTU " + otuID);
-    var topOtuLabels = otuLabels.slice(0,10).reverse();
-    var topsampleValues = sampleValues.slice(0,10).reverse();
-
-    let traceBar = {
-        x: topsampleValues,
-        y: topOtuIDs,
-        text: topOtuLabels,
-        type: "bar",
-        orientation: "h"
-    }
-
-
-    let dataBar = [traceBar];
-
-    // Layput
-    let layoutBar = {
-        title: `<b>Top 10 Bacteria Species<br> in Test Subject ${subjectID}</b>`,
-        xaxis: {title: `Sample Values`},
-
-    }
-
-
-    Plotly.newPlot("bar", dataBar, layoutBar);
-
-    
-    
-
 
 
 // Function to update demographic info and create charts
@@ -109,7 +75,39 @@ function createCharts(subjectID, samplesInfo) {
     var sampleValues = samplesInfo.sample_values;
  
     
+     
+    // Creating Bar Chart
+
+
+    // Top 10 OTU IDs and data and sort
     
+    var topOtuIDs = otuIDs.slice(0,10).reverse().map(otuID => "OTU " + otuID);
+    var topOtuLabels = otuLabels.slice(0,10).reverse();
+    var topsampleValues = sampleValues.slice(0,10).reverse();
+
+    let traceBar = {
+        x: topsampleValues,
+        y: topOtuIDs,
+        text: topOtuLabels,
+        type: "bar",
+        orientation: "h"
+    }
+
+
+    let dataBar = [traceBar];
+
+    // Layput
+    let layoutBar = {
+        title: `<b>Top 10 Bacteria Species<br> in Test Subject ${subjectID}</b>`,
+        xaxis: {title: `Sample Values`},
+
+    }
+
+
+    Plotly.newPlot("bar", dataBar, layoutBar);
+
+    
+       
     
 
     // Creating Bubble Chart
